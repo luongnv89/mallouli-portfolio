@@ -85,6 +85,20 @@ function App() {
 }
 
 function About() {
+  const totalPublications = PUBLICATIONS.reduce((n, y) => n + y.items.length, 0)
+  const totalProjects = PROJECTS.reduce((n, y) => n + y.items.length, 0)
+  const totalCourses = TEACHING.reduce((n, y) => n + y.items.length, 0)
+  const academicYears = TEACHING.length
+  const totalCommitteePc = COMMITTEES.reduce((n, e) => n + (e.pc?.length || 0), 0)
+  const yearsService = COMMITTEES.length
+  const summerSchoolsCount = SUMMER_SCHOOLS.length
+  const careerStartYears = (() => {
+    const ys = PUBLICATIONS
+      .map(y => parseInt(y.year, 10))
+      .filter(n => !Number.isNaN(n))
+    return Math.max(...ys) - Math.min(...ys) + 1
+  })()
+
   return (
     <section id="about">
       <div className="hero">
@@ -99,9 +113,9 @@ function About() {
             IoT and 5G networks.
           </p>
           <div className="hero-meta">
-            <span>{PUBLICATIONS.reduce((n, y) => n + y.items.length, 0)}+ publications</span>
+            <span>{totalPublications}+ publications</span>
             <span className="dot" />
-            <span>{PROJECTS.reduce((n, y) => n + y.items.length, 0)} EU research projects</span>
+            <span>{totalProjects} EU research projects</span>
             <span className="dot" />
             <span>Paris</span>
           </div>
@@ -111,6 +125,17 @@ function About() {
           <img src="https://www.mallouli.com/portrait.jpg" alt="Wissam Mallouli" />
           <div className="portrait-caption">— Paris, 2026</div>
         </div>
+      </div>
+
+      <div className="metrics-grid about-metrics">
+        <div className="metric"><span className="metric-num">{totalPublications}</span><span className="metric-label">publications</span></div>
+        <div className="metric"><span className="metric-num">{totalProjects}</span><span className="metric-label">research projects</span></div>
+        <div className="metric"><span className="metric-num">{totalCourses}</span><span className="metric-label">courses taught</span></div>
+        <div className="metric"><span className="metric-num">{academicYears}</span><span className="metric-label">academic years</span></div>
+        <div className="metric"><span className="metric-num">{totalCommitteePc}</span><span className="metric-label">PC memberships</span></div>
+        <div className="metric"><span className="metric-num">{yearsService}</span><span className="metric-label">years of service</span></div>
+        <div className="metric"><span className="metric-num">{summerSchoolsCount}</span><span className="metric-label">summer schools</span></div>
+        <div className="metric"><span className="metric-num">{careerStartYears}</span><span className="metric-label">years of research</span></div>
       </div>
 
       <div className="bio">
@@ -268,6 +293,17 @@ function Publications() {
                 <span className="venue">{p.venue}</span>
                 {p.note && <span className="award"> · {p.note}</span>}
                 {p.doi && <a className="doi" href={p.doi} target="_blank" rel="noopener">DOI</a>}
+                {p.pdf && (
+                  <a
+                    className="pdf-badge"
+                    href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}${p.pdf}`}
+                    target="_blank"
+                    rel="noopener"
+                    title="Download PDF"
+                  >
+                    PDF
+                  </a>
+                )}
               </li>
             ))}
           </ul>
@@ -282,6 +318,14 @@ function Teaching() {
   const [showAll, setShowAll] = useState(false)
   const visible = showAll ? TEACHING : TEACHING.slice(0, 6)
 
+  const totalCourses = TEACHING.reduce((n, y) => n + y.items.length, 0)
+  const academicYears = TEACHING.length
+  const institutions = new Set(
+    TEACHING.flatMap(y => y.items.map(t => (t.where || '').split('—')[0].trim()))
+  )
+  const summerSchoolsCount = SUMMER_SCHOOLS.length
+  const speakerCount = SUMMER_SCHOOLS.filter(s => /Speaker|Organizer/.test(s.role)).length
+
   const handleKey = (e) => {
     if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
       e.preventDefault()
@@ -293,6 +337,14 @@ function Teaching() {
     <section id="teaching">
       <div className="eyebrow">Lectures · supervision · summer schools</div>
       <h2>Teaching.</h2>
+
+      <div className="metrics-grid">
+        <div className="metric"><span className="metric-num">{academicYears}</span><span className="metric-label">academic years</span></div>
+        <div className="metric"><span className="metric-num">{totalCourses}</span><span className="metric-label">course assignments</span></div>
+        <div className="metric"><span className="metric-num">{institutions.size}</span><span className="metric-label">institutions</span></div>
+        <div className="metric"><span className="metric-num">{summerSchoolsCount}</span><span className="metric-label">summer schools</span></div>
+        <div className="metric"><span className="metric-num">{speakerCount}</span><span className="metric-label">speaker / organizer roles</span></div>
+      </div>
 
       <div className="tabs" role="tablist" aria-label="Teaching categories" onKeyDown={handleKey}>
         <button

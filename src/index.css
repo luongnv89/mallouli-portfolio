@@ -396,6 +396,26 @@ section ul {
   color: var(--accent);
   vertical-align: middle;
 }
+.pub-list a.pdf-badge {
+  display: inline-block;
+  margin-left: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 3px 10px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--paper);
+  border-radius: 999px;
+  vertical-align: middle;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.pub-list a.pdf-badge:hover {
+  background: transparent;
+  color: var(--accent);
+  text-decoration: none;
+}
 .pub-list a.doi:hover {
   background: var(--accent);
   color: var(--paper);
@@ -532,6 +552,11 @@ section ul {
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--ink-mute);
+}
+
+.about-metrics {
+  margin-top: 8px;
+  margin-bottom: 64px;
 }
 
 .controls {
