@@ -149,20 +149,118 @@ function About() {
   )
 }
 
+const FLAT_PUBLICATIONS = PUBLICATIONS.flatMap(({ year, items }) =>
+  items.map((p) => ({ ...p, year }))
+)
+
+const PUB_YEARS = [...new Set(FLAT_PUBLICATIONS.map(p => p.year))].sort((a, b) => b.localeCompare(a))
+
+function classifyVenue(venue = '') {
+  const v = venue.toLowerCase()
+  if (/\bjournal\b|transactions|electronics journal|ieee access|computer networks|communications magazine|comm\.? mag\.?|computer journal|eurasip/i.test(v)) return 'journal'
+  if (/handbook|book chapter|chapter\b/.test(v)) return 'book'
+  return 'conference'
+}
+
 function Publications() {
-  const [showAll, setShowAll] = useState(false)
-  const visible = showAll ? PUBLICATIONS : PUBLICATIONS.slice(0, 5)
-  const totalCount = PUBLICATIONS.reduce((n, y) => n + y.items.length, 0)
+  const [query, setQuery] = useState('')
+  const [sort, setSort] = useState('year-desc')
+  const [yearFilter, setYearFilter] = useState('all')
+
+  const filtered = FLAT_PUBLICATIONS
+    .filter(p => yearFilter === 'all' || p.year === yearFilter)
+    .filter(p => query.trim() === '' || p.title.toLowerCase().includes(query.trim().toLowerCase()))
+
+  const sorted = [...filtered].sort((a, b) => {
+    if (sort === 'year-asc') return a.year.localeCompare(b.year)
+    if (sort === 'title-asc') return a.title.localeCompare(b.title)
+    return b.year.localeCompare(a.year)
+  })
+
+  const totalCount = FLAT_PUBLICATIONS.length
+  const numericYears = FLAT_PUBLICATIONS
+    .map(p => parseInt(p.year, 10))
+    .filter(n => !Number.isNaN(n))
+  const yearMin = Math.min(...numericYears)
+  const yearMax = Math.max(...numericYears)
+  const counts = FLAT_PUBLICATIONS.reduce(
+    (acc, p) => {
+      const k = classifyVenue(p.venue)
+      acc[k] = (acc[k] || 0) + 1
+      return acc
+    },
+    { journal: 0, conference: 0, book: 0 },
+  )
+
+  const reset = () => { setQuery(''); setSort('year-desc'); setYearFilter('all') }
+  const isFiltered = query !== '' || sort !== 'year-desc' || yearFilter !== 'all'
+
+  // group sorted entries by year for display
+  const groups = sorted.reduce((acc, p) => {
+    const last = acc[acc.length - 1]
+    if (last && last.year === p.year) last.items.push(p)
+    else acc.push({ year: p.year, items: [p] })
+    return acc
+  }, [])
 
   return (
-    <section id="publications">
-      <div className="eyebrow">{totalCount} entries · 2006 → 2026</div>
+    <section id="publications" className="publications-page">
+      <div className="eyebrow">{totalCount} entries · {yearMin} → {yearMax}</div>
       <h2>Publications.</h2>
 
-      {visible.map(({ year, items }) => (
-        <div key={year} className="year-block">
+      <div className="metrics-grid">
+        <div className="metric"><span className="metric-num">{totalCount}</span><span className="metric-label">total</span></div>
+        <div className="metric"><span className="metric-num">{yearMin}–{yearMax}</span><span className="metric-label">year span</span></div>
+        <div className="metric"><span className="metric-num">{counts.journal}</span><span className="metric-label">journals</span></div>
+        <div className="metric"><span className="metric-num">{counts.conference}</span><span className="metric-label">conferences</span></div>
+        <div className="metric"><span className="metric-num">{counts.book}</span><span className="metric-label">book chapters</span></div>
+      </div>
+
+      <div className="controls">
+        <input
+          type="search"
+          className="search-input"
+          placeholder="Search by title…"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          aria-label="Search publications by title"
+        />
+        <select
+          className="select"
+          value={yearFilter}
+          onChange={(e) => setYearFilter(e.target.value)}
+          aria-label="Filter by year"
+        >
+          <option value="all">All years</option>
+          {PUB_YEARS.map(y => <option key={y} value={y}>{y}</option>)}
+        </select>
+        <select
+          className="select"
+          value={sort}
+          onChange={(e) => setSort(e.target.value)}
+          aria-label="Sort publications"
+        >
+          <option value="year-desc">Year — newest</option>
+          <option value="year-asc">Year — oldest</option>
+          <option value="title-asc">Title — A→Z</option>
+        </select>
+        {isFiltered && (
+          <button type="button" className="link-btn" onClick={reset}>Reset</button>
+        )}
+      </div>
+
+      <div className="results-count">
+        {sorted.length} of {totalCount} publications
+      </div>
+
+      {groups.length === 0 && (
+        <p className="empty-state">No publications match the current filters.</p>
+      )}
+
+      {groups.map(({ year, items }) => (
+        <div key={year} className="year-block compact">
           <div className="year-label">{year}</div>
-          <ul className="pub-list">
+          <ul className="pub-list compact">
             {items.map((p, i) => (
               <li key={i}>
                 <span className="title">{p.title}</span>
@@ -175,12 +273,6 @@ function Publications() {
           </ul>
         </div>
       ))}
-
-      <p className="more-link">
-        <button className="link-btn" onClick={() => setShowAll(!showAll)}>
-          {showAll ? 'Show recent only' : `Show all ${PUBLICATIONS.length} years`}
-        </button>
-      </p>
     </section>
   )
 }
