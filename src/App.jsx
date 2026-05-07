@@ -278,45 +278,85 @@ function Publications() {
 }
 
 function Teaching() {
+  const [tab, setTab] = useState('courses')
   const [showAll, setShowAll] = useState(false)
-  const visible = showAll ? TEACHING : TEACHING.slice(0, 4)
+  const visible = showAll ? TEACHING : TEACHING.slice(0, 6)
+
+  const handleKey = (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      e.preventDefault()
+      setTab(tab === 'courses' ? 'summer' : 'courses')
+    }
+  }
 
   return (
     <section id="teaching">
       <div className="eyebrow">Lectures · supervision · summer schools</div>
       <h2>Teaching.</h2>
 
-      {visible.map(({ year, items }) => (
-        <div key={year} className="year-block">
-          <div className="year-label">{year}</div>
-          <ul className="teach-list">
-            {items.map((t, i) => (
+      <div className="tabs" role="tablist" aria-label="Teaching categories" onKeyDown={handleKey}>
+        <button
+          type="button"
+          role="tab"
+          id="tab-courses"
+          aria-selected={tab === 'courses'}
+          aria-controls="panel-courses"
+          tabIndex={tab === 'courses' ? 0 : -1}
+          className={`tab ${tab === 'courses' ? 'active' : ''}`}
+          onClick={() => setTab('courses')}
+        >
+          University courses
+        </button>
+        <button
+          type="button"
+          role="tab"
+          id="tab-summer"
+          aria-selected={tab === 'summer'}
+          aria-controls="panel-summer"
+          tabIndex={tab === 'summer' ? 0 : -1}
+          className={`tab ${tab === 'summer' ? 'active' : ''}`}
+          onClick={() => setTab('summer')}
+        >
+          Summer schools / TAROT
+        </button>
+      </div>
+
+      {tab === 'courses' && (
+        <div id="panel-courses" role="tabpanel" aria-labelledby="tab-courses">
+          {visible.map(({ year, items }) => (
+            <div key={year} className="year-block compact">
+              <div className="year-label">{year}</div>
+              <ul className="teach-list compact">
+                {items.map((t, i) => (
+                  <li key={i}>
+                    <strong>{t.what}</strong> — {t.where}
+                    {t.meta && <span className="meta">{t.meta}</span>}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          <p className="more-link">
+            <button className="link-btn" onClick={() => setShowAll(!showAll)}>
+              {showAll ? 'Show recent only' : `Show all ${TEACHING.length} academic years`}
+            </button>
+          </p>
+        </div>
+      )}
+
+      {tab === 'summer' && (
+        <div id="panel-summer" role="tabpanel" aria-labelledby="tab-summer">
+          <ul className="teach-list compact summer-list">
+            {SUMMER_SCHOOLS.map((s, i) => (
               <li key={i}>
-                <strong>{t.what}</strong> — {t.where}
-                {t.meta && <span className="meta">{t.meta}</span>}
+                <strong>{s.name}</strong> — {s.where}
+                <span className="meta">{s.role}</span>
               </li>
             ))}
           </ul>
         </div>
-      ))}
-
-      <p className="more-link">
-        <button className="link-btn" onClick={() => setShowAll(!showAll)}>
-          {showAll ? 'Show recent only' : `Show all ${TEACHING.length} academic years`}
-        </button>
-      </p>
-
-      <div className="summer-schools">
-        <h3>Summer Schools — TAROT & RESCOM</h3>
-        <ul className="teach-list">
-          {SUMMER_SCHOOLS.map((s, i) => (
-            <li key={i}>
-              <strong>{s.name}</strong> — {s.where}
-              <span className="meta">{s.role}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      )}
     </section>
   )
 }
