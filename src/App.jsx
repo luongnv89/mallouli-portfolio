@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './index.css'
 import { PUBLICATIONS, TEACHING, SUMMER_SCHOOLS, PROJECTS, COMMITTEES } from './data'
 
@@ -12,6 +12,20 @@ const PAGES = [
 
 function App() {
   const [currentPage, setCurrentPage] = useState('about')
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    if (!menuOpen) return
+    const onKey = (e) => { if (e.key === 'Escape') setMenuOpen(false) }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [menuOpen])
+
+  const goTo = (id) => {
+    setCurrentPage(id)
+    setMenuOpen(false)
+    window.scrollTo({ top: 0 })
+  }
 
   const renderPage = () => {
     switch (currentPage) {
@@ -31,12 +45,24 @@ function App() {
           Wissam Mallouli
           <span className="brand-mark">PhD · CTO</span>
         </div>
-        <nav className="nav">
+        <button
+          type="button"
+          className="nav-toggle"
+          aria-expanded={menuOpen}
+          aria-controls="primary-nav"
+          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          onClick={() => setMenuOpen(o => !o)}
+        >
+          <span className={`nav-toggle-bars ${menuOpen ? 'is-open' : ''}`} aria-hidden="true">
+            <span /><span /><span />
+          </span>
+        </button>
+        <nav id="primary-nav" className={`nav ${menuOpen ? 'is-open' : ''}`}>
           {PAGES.map(p => (
             <a
               key={p.id}
               href={`#${p.id}`}
-              onClick={(e) => { e.preventDefault(); setCurrentPage(p.id); window.scrollTo({ top: 0 }) }}
+              onClick={(e) => { e.preventDefault(); goTo(p.id) }}
               className={currentPage === p.id ? 'active' : ''}
             >
               {p.label}
