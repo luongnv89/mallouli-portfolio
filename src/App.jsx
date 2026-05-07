@@ -1,35 +1,47 @@
 import { useState } from 'react'
 import './index.css'
+import { PUBLICATIONS, TEACHING, SUMMER_SCHOOLS, PROJECTS, COMMITTEES } from './data'
+
+const PAGES = [
+  { id: 'about', label: 'About' },
+  { id: 'publications', label: 'Publications' },
+  { id: 'teaching', label: 'Teaching' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'committees', label: 'Committees' },
+]
 
 function App() {
   const [currentPage, setCurrentPage] = useState('about')
 
   const renderPage = () => {
     switch (currentPage) {
-      case 'about':
-        return <About />
-      case 'publications':
-        return <Publications />
-      case 'teaching':
-        return <Teaching />
-      case 'projects':
-        return <Projects />
-      case 'committees':
-        return <Committees />
-      default:
-        return <About />
+      case 'about': return <About />
+      case 'publications': return <Publications />
+      case 'teaching': return <Teaching />
+      case 'projects': return <Projects />
+      case 'committees': return <Committees />
+      default: return <About />
     }
   }
 
   return (
     <div className="container">
       <header className="header">
+        <div className="brand">
+          Wissam Mallouli
+          <span className="brand-mark">PhD · CTO</span>
+        </div>
         <nav className="nav">
-          <a href="#about" onClick={(e) => { e.preventDefault(); setCurrentPage('about') }} className={currentPage === 'about' ? 'active' : ''}>About me</a>
-          <a href="#publications" onClick={(e) => { e.preventDefault(); setCurrentPage('publications') }} className={currentPage === 'publications' ? 'active' : ''}>Publications</a>
-          <a href="#teaching" onClick={(e) => { e.preventDefault(); setCurrentPage('teaching') }} className={currentPage === 'teaching' ? 'active' : ''}>Teaching</a>
-          <a href="#projects" onClick={(e) => { e.preventDefault(); setCurrentPage('projects') }} className={currentPage === 'projects' ? 'active' : ''}>Projects</a>
-          <a href="#committees" onClick={(e) => { e.preventDefault(); setCurrentPage('committees') }} className={currentPage === 'committees' ? 'active' : ''}>Committees</a>
+          {PAGES.map(p => (
+            <a
+              key={p.id}
+              href={`#${p.id}`}
+              onClick={(e) => { e.preventDefault(); setCurrentPage(p.id); window.scrollTo({ top: 0 }) }}
+              className={currentPage === p.id ? 'active' : ''}
+            >
+              {p.label}
+            </a>
+          ))}
         </nav>
       </header>
 
@@ -38,7 +50,9 @@ function App() {
       </main>
 
       <footer className="footer">
-        <p>&copy; {new Date().getFullYear()} Wissam Mallouli. All rights reserved.</p>
+        <span>© {new Date().getFullYear()} — All rights reserved</span>
+        <span className="sig">Paris · France</span>
+        <span>v.2026</span>
       </footer>
     </div>
   )
@@ -47,125 +61,142 @@ function App() {
 function About() {
   return (
     <section id="about">
-      <div className="profile-section">
-        <div className="portrait">
-          <img src="https://www.mallouli.com/portrait.jpg" alt="Wissam Mallouli" width="200" />
+      <div className="hero">
+        <div className="hero-text">
+          <div className="eyebrow">Cybersecurity researcher</div>
+          <h1 className="hero-name">
+            Dr. Wissam<br/>
+            <em>Mallouli.</em>
+          </h1>
+          <p className="hero-tagline">
+            CTO at Montimage. Working at the intersection of cyberdefense,
+            IoT and 5G networks.
+          </p>
+          <div className="hero-meta">
+            <span>{PUBLICATIONS.reduce((n, y) => n + y.items.length, 0)}+ publications</span>
+            <span className="dot" />
+            <span>{PROJECTS.reduce((n, y) => n + y.items.length, 0)} EU research projects</span>
+            <span className="dot" />
+            <span>Paris</span>
+          </div>
         </div>
-        <h1>Wissam Mallouli</h1>
-        <div className="contact-details">
-          <p><strong>Contact details - Professional</strong></p>
-          <p>Montimage</p>
-          <p>39 rue Bobillot</p>
-          <p>75013, Paris Cedex, France</p>
-          <p>Phone: +33 (0) 6 95 93 33 39</p>
-          <p>E-mail: <a href="mailto:wissam.mallouli@montimage.com">wissam.mallouli@montimage.com</a></p>
+
+        <div className="hero-portrait">
+          <img src="https://www.mallouli.com/portrait.jpg" alt="Wissam Mallouli" />
+          <div className="portrait-caption">— Paris, 2026</div>
         </div>
       </div>
 
       <div className="bio">
-        <h2>About me</h2>
-        <p>Dr. Wissam Mallouli is currently the CTO of <a href="https://www.montimage.com">Montimage</a> company located in Paris, France. He got his Telecommunication Engineer degree from the National Institute of Telecommunication (INT) in 2005 and his PhD in cybersecurity from Telecom and Management SudParis (France) in 2008. His expertise covers continuous risk management and cyberdefense of critical systems and networks including cloud-based systems, IoT and 4G/5G networks. He is working in several collaborative European research projects and has more than 50 scientific publications in popular conferences and journals.</p>
+        <div className="bio-label">Biography</div>
+        <div className="bio-body">
+          <p>
+            Dr. Wissam Mallouli is currently the CTO of <a href="https://www.montimage.com">Montimage</a>,
+            located in Paris, France. He received his Telecommunication Engineer degree from the
+            National Institute of Telecommunication (INT) in 2005 and his PhD in cybersecurity from
+            Telecom & Management SudParis in 2008.
+          </p>
+          <p>
+            His expertise covers continuous risk management and cyberdefense of critical systems
+            and networks — including cloud-based systems, IoT and 4G/5G networks. He participates
+            in several collaborative European research projects and has authored more than 50
+            scientific publications in leading conferences and journals.
+          </p>
+        </div>
+      </div>
+
+      <div className="contact-card">
+        <h4>Get in touch</h4>
+        <div className="contact-row">
+          <span className="k">Affiliation</span>
+          <span className="v">Montimage<br/>39 rue Bobillot, 75013 Paris Cedex, France</span>
+        </div>
+        <div className="contact-row">
+          <span className="k">Direct</span>
+          <span className="v">
+            +33 (0) 6 95 93 33 39<br/>
+            <a href="mailto:wissam.mallouli@montimage.com">wissam.mallouli@montimage.com</a>
+          </span>
+        </div>
       </div>
     </section>
   )
 }
 
 function Publications() {
+  const [showAll, setShowAll] = useState(false)
+  const visible = showAll ? PUBLICATIONS : PUBLICATIONS.slice(0, 5)
+  const totalCount = PUBLICATIONS.reduce((n, y) => n + y.items.length, 0)
+
   return (
     <section id="publications">
-      <h2>Publications</h2>
+      <div className="eyebrow">{totalCount} entries · 2006 → 2026</div>
+      <h2>Publications.</h2>
 
-      <div className="pub-year">
-        <h3>2026</h3>
-        <ul>
-          <li>
-            <span className="authors">Kitty Kioskli, Eleni Seralidou, Wissam Mallouli, Dimitrios Koutras, Pedro Tomas, and Dimitrios Kallergis (2026).</span>
-            <span className="title"> A human-centric AI-enabled ecosystem for SME cybersecurity: Cross-sectoral practices and adaptation framework for maritime defence.</span>
-            <span className="venue"> Electronics Journal, 2026, Volume 15, Article 1520.</span>
-            <a href="https://doi.org/10.3390/electronics15071520" target="_blank" rel="noopener">DOI</a>
-          </li>
-        </ul>
-      </div>
+      {visible.map(({ year, items }) => (
+        <div key={year} className="year-block">
+          <div className="year-label">{year}</div>
+          <ul className="pub-list">
+            {items.map((p, i) => (
+              <li key={i}>
+                <span className="title">{p.title}</span>
+                <span className="authors">{p.authors}</span>
+                <span className="venue">{p.venue}</span>
+                {p.note && <span className="award"> · {p.note}</span>}
+                {p.doi && <a className="doi" href={p.doi} target="_blank" rel="noopener">DOI</a>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
 
-      <div className="pub-year">
-        <h3>2025</h3>
-        <ul>
-          <li>
-            <span className="authors">Phu Hong Nguyen, Hui Song, Rustem Dautov, Nicolas Ferry, Angel Rego, Erkuden Rios, Eider Iturbe, Valeria Valdes, Ana Rosa Cavalli, Wissam Mallouli.</span>
-            <span className="title"> Knowledge Systematization for Security Orchestration in CPS and IoT Systems.</span>
-            <span className="venue"> CSR 2025, pp 672-678.</span>
-          </li>
-          <li>
-            <span className="authors">Assia Belbachir, Antonio M. Ortiz, Ahmed Nabil Belbachir, Wissam Mallouli, An Ngoc Lam, Akhilesh Kumar Srivastava, Martin Hemmer.</span>
-            <span className="title"> COGNIMAN Digital Twin Architecture for Flexible Manufacturing.</span>
-            <span className="venue"> Journal of Intelligent Manufacturing.</span>
-            <a href="https://doi.org/10.1007/s10845-025-02625-1" target="_blank" rel="noopener">DOI</a>
-          </li>
-        </ul>
-      </div>
-
-      <div className="pub-year">
-        <h3>2024</h3>
-        <ul>
-          <li>
-            <span className="authors">Ana Rosa Cavalli, Wissam Mallouli, Edgardo Montes de Oca, and Diego Rivera.</span>
-            <span className="title"> IoT Security Monitoring Tools and Models.</span>
-            <span className="venue"> Springer Handbook of Internet of Things.</span>
-          </li>
-          <li>
-            <span className="authors">An Ngoc Lam, Goran Brekke Svaland, Miguel Angel Barcelona, Shane Keaveney, Wissam Mallouli, Luong Nguyen, Assia Belbachir, Xiang Ma, Akhilesh Kumar Srivastava, and Ahmed Nabil Belbachir.</span>
-            <span className="title"> SINDIT: A Framework for Knowledge Graph-Based Digital Twins in Smart Manufacturing.</span>
-            <span className="venue"> IoT 2024 Graal4IoT Workshop.</span>
-          </li>
-        </ul>
-      </div>
-
-      <p className="more-link"><a href="http://www.mallouli.com/publication.php">More publications...</a></p>
+      <p className="more-link">
+        <button className="link-btn" onClick={() => setShowAll(!showAll)}>
+          {showAll ? 'Show recent only' : `Show all ${PUBLICATIONS.length} years`}
+        </button>
+      </p>
     </section>
   )
 }
 
 function Teaching() {
+  const [showAll, setShowAll] = useState(false)
+  const visible = showAll ? TEACHING : TEACHING.slice(0, 4)
+
   return (
     <section id="teaching">
-      <h2>Teaching</h2>
+      <div className="eyebrow">Lectures · supervision · summer schools</div>
+      <h2>Teaching.</h2>
 
-      <div className="teaching-year">
-        <h3>2017 - 2018</h3>
-        <ul>
-          <li>Lecture "Java" in l'Ecole ESME Sudria for Master 2 Master of science (20 hours)</li>
-          <li>Lecture "Javascript" in l'Ecole ESME Sudria for Master 2 Master of science (20 hours)</li>
-          <li>Lecture "Protocol Engineering" in University Paris VII Diderot for Master 2 SRI (6 hours)</li>
-          <li>Lecture "Network traffic analysis based on DPI" in ESME Sudria Engineering School for Master 2 3BR Electronics and Telecoms (28 hours)</li>
-        </ul>
-      </div>
+      {visible.map(({ year, items }) => (
+        <div key={year} className="year-block">
+          <div className="year-label">{year}</div>
+          <ul className="teach-list">
+            {items.map((t, i) => (
+              <li key={i}>
+                <strong>{t.what}</strong> — {t.where}
+                {t.meta && <span className="meta">{t.meta}</span>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
 
-      <div className="teaching-year">
-        <h3>2016 - 2017</h3>
-        <ul>
-          <li>CM "Java" in l'Ecole ESME Sudria for Master 2 Master of science (16 hours)</li>
-          <li>CM "Javascript" in l'Ecole ESME Sudria for Master 2 Master of science (16 hours)</li>
-          <li>CM "Network traffic analysis based on DPI" in l'Ecole ESME Sudria for Master 2 3BR Electronique Télécoms (24 hours)</li>
-          <li>Lecture "Protocol Engineering" in University Paris VII Diderot for Master 2 SRI (6 hours)</li>
-        </ul>
-      </div>
-
-      <div className="teaching-year">
-        <h3>2015 - 2016</h3>
-        <ul>
-          <li>CM "Conception de protocoles réseaux" in l'Ecole ESME Sudria for Master 2 A2R Informatique et Réseaux (12 hours)</li>
-          <li>CM "Passive testing" in Genopole for Master 2 Biology (mSSB) (6 hours)</li>
-          <li>CM "Ingénierie des protocoles" in l'Université Paris VII Diderot for Master 2 SRI (6 hours)</li>
-          <li>Encadrement "Deep Packet Inspection" in l'Ecole ESME Sudria for Master 2 B Electronique Télécoms (30 hours)</li>
-        </ul>
-      </div>
+      <p className="more-link">
+        <button className="link-btn" onClick={() => setShowAll(!showAll)}>
+          {showAll ? 'Show recent only' : `Show all ${TEACHING.length} academic years`}
+        </button>
+      </p>
 
       <div className="summer-schools">
-        <h3>Summer Schools</h3>
-        <ul>
-          <li>TAROT 2017 : 13th International Summer School on Training And Research On Testing (Naples, Italy) - Organizer + Speaker</li>
-          <li>TAROT 2016 : 12th International Summer School on Training And Research On Testing (Porto, Portugal) - Organizer + Speaker</li>
-          <li>TAROT 2015 : 11th International Summer School on Training And Research On Testing (Porto, Portugal) - Speaker</li>
+        <h3>Summer Schools — TAROT & RESCOM</h3>
+        <ul className="teach-list">
+          {SUMMER_SCHOOLS.map((s, i) => (
+            <li key={i}>
+              <strong>{s.name}</strong> — {s.where}
+              <span className="meta">{s.role}</span>
+            </li>
+          ))}
         </ul>
       </div>
     </section>
@@ -175,110 +206,82 @@ function Teaching() {
 function Projects() {
   return (
     <section id="projects">
-      <h2>Projects</h2>
+      <div className="eyebrow">Collaborative European research</div>
+      <h2>Projects.</h2>
 
-      <div className="project-year">
-        <h3>2017</h3>
-        <ul>
-          <li>
-            <strong>MoNet</strong> - Montimage deploys its MMT monitoring tool to detect functional and security anomalies in Softfire platforms.
-            <br /><span className="dates">Start: 2017-11-15 - End: 2018-02-15</span>
-          </li>
-          <li>
-            <strong>SAINT</strong> - Analysis of cybercriminal activity ecosystems and development of a framework for fighting cybercrime.
-            <br /><span className="dates">Start: 2017-05-01 - End: 2019-04-30</span>
-          </li>
-          <li>
-            <strong>ANASTACIA</strong> - H2020 research project on cyber-security for Cyber Physical Systems (CPS) based on IoT and Cloud architectures.
-            <br /><span className="dates">Start: 2017-01-01 - End: 2019-12-31</span>
-          </li>
-        </ul>
-      </div>
-
-      <div className="project-year">
-        <h3>2015</h3>
-        <ul>
-          <li>
-            <strong>MEASURE</strong> - ITEA3 project for automated and continuous measurement in software engineering.
-            <br /><span className="dates">Start: 2015-12-01 - End: 2019-02-28</span>
-          </li>
-          <li>
-            <strong>CLARUS</strong> - Security framework for cloud computing data storage and processing.
-            <br /><span className="dates">Start: 2015-01-01 - End: 2017-12-31</span>
-          </li>
-          <li>
-            <strong>MUSA</strong> - Security-intelligent lifecycle management of distributed applications over heterogeneous cloud resources.
-            <br /><span className="dates">Start: 2015-01-01 - End: 2017-12-31</span>
-          </li>
-        </ul>
-      </div>
-
-      <div className="project-year">
-        <h3>2014</h3>
-        <ul>
-          <li>
-            <strong>DOCTOR</strong> - Network Virtualization Function (NFV) security and monitoring in virtualized environments.
-            <br /><span className="dates">Start: 2014-10-01 - End: 2018-03-31</span>
-          </li>
-        </ul>
-      </div>
+      {PROJECTS.map(({ year, items }) => (
+        <div key={year} className="year-block">
+          <div className="year-label">{year}</div>
+          <ul className="proj-list">
+            {items.map((p, i) => (
+              <li key={i}>
+                <span className="name">{p.name}</span>
+                {p.program && <span className="badge">{p.program}</span>}
+                <span className="desc"> {p.desc}</span>
+                <span className="meta">{p.dates}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </section>
   )
 }
 
 function Committees() {
+  const [showAll, setShowAll] = useState(false)
+  const visible = showAll ? COMMITTEES : COMMITTEES.slice(0, 4)
+
   return (
     <section id="committees">
-      <h2>Committees</h2>
+      <div className="eyebrow">Service to the research community</div>
+      <h2>Committees.</h2>
 
-      <div className="committee-year">
-        <h3>2026</h3>
-        <div className="committee-section">
-          <h4>Program Committee Member</h4>
-          <ul>
-            <li>ICICNCT 2026 - 2nd International Conference on Intelligent Communication Networks and Computational Techniques</li>
-            <li>ICTSS 2026 - The 38th International Conference on Testing Software and Systems</li>
-            <li>CSR 2026 - IEEE International Conference on Cyber Security and Resilience</li>
-            <li>SecSoft 2026 - The 11th IEEE International Conference on Network Softwarization</li>
-          </ul>
+      {visible.map((entry) => (
+        <div key={entry.year} className="year-block">
+          <div className="year-label">{entry.year}</div>
+          <div>
+            {entry.evaluation && (
+              <div className="committee-section">
+                <h4>Evaluation Committee</h4>
+                <ul className="com-list">
+                  {entry.evaluation.map((x, i) => <li key={i}>{x}</li>)}
+                </ul>
+              </div>
+            )}
+            {entry.pc && (
+              <div className="committee-section">
+                <h4>Program Committee</h4>
+                <ul className="com-list">
+                  {entry.pc.map((x, i) => <li key={i}>{x}</li>)}
+                </ul>
+              </div>
+            )}
+            {entry.organizing && (
+              <div className="committee-section">
+                <h4>Organizing Committee · Editor</h4>
+                <ul className="com-list">
+                  {entry.organizing.map((x, i) => <li key={i}>{x}</li>)}
+                </ul>
+              </div>
+            )}
+            {entry.reviews && (
+              <div className="committee-section">
+                <h4>Reviews</h4>
+                <ul className="com-list">
+                  {entry.reviews.map((x, i) => <li key={i}>{x}</li>)}
+                </ul>
+              </div>
+            )}
+          </div>
         </div>
-        <div className="committee-section">
-          <h4>Reviews</h4>
-          <ul>
-            <li>ICSOFT 2026, SecSoft 2026, CSR 2026</li>
-          </ul>
-        </div>
-      </div>
+      ))}
 
-      <div className="committee-year">
-        <h3>2025</h3>
-        <div className="committee-section">
-          <h4>Program Committee Member</h4>
-          <ul>
-            <li>CSR 2025 - The IEEE International Conference on Cyber Security and Resilience</li>
-            <li>STAM 2025 - The 5th International Workshop on Security Testing and Monitoring</li>
-            <li>DT4DRS 2025 - Workshop on Digital Twins for Dependability, Resilience and Security</li>
-          </ul>
-        </div>
-        <div className="committee-section">
-          <h4>Reviews</h4>
-          <ul>
-            <li>Journal of Network and Computer Applications, Computer Science Journal, FPS 2025</li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="committee-year">
-        <h3>2024</h3>
-        <div className="committee-section">
-          <h4>Program Committee Member</h4>
-          <ul>
-            <li>TrustCom 2024 - The 23rd IEEE International Conference on Trust, Security and Privacy in Computing and Communications</li>
-            <li>STAM 2024 - The 4th International Workshop on Security Testing and Monitoring</li>
-            <li>CloudCom 2024 - The 15th IEEE International conference on cloud computing technology and science</li>
-          </ul>
-        </div>
-      </div>
+      <p className="more-link">
+        <button className="link-btn" onClick={() => setShowAll(!showAll)}>
+          {showAll ? 'Show recent only' : `Show all ${COMMITTEES.length} years`}
+        </button>
+      </p>
     </section>
   )
 }
