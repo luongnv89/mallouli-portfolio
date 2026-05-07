@@ -627,6 +627,25 @@ section ul {
   border-bottom: 1px solid var(--rule);
 }
 
+/* Compact proj-list */
+.proj-list.compact > li {
+  padding: 12px 0;
+}
+.proj-list.compact > li + li {
+  border-top: 1px solid var(--rule);
+}
+.proj-list.compact .name {
+  font-size: 1.05rem;
+  margin-right: 6px;
+}
+.proj-list.compact .desc {
+  font-size: 0.92rem;
+}
+.proj-list.compact .meta {
+  font-size: 0.7rem;
+  margin-top: 4px;
+}
+
 /* ───── Tabs ───── */
 .tabs {
   display: inline-flex;

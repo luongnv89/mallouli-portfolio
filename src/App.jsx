@@ -361,16 +361,112 @@ function Teaching() {
   )
 }
 
+const FLAT_PROJECTS = PROJECTS.flatMap(({ year, items }) =>
+  items.map(p => ({ ...p, year }))
+)
+
+const PROJECT_PROGRAMS = [...new Set(FLAT_PROJECTS.map(p => p.program).filter(Boolean))].sort()
+
 function Projects() {
+  const [query, setQuery] = useState('')
+  const [program, setProgram] = useState('all')
+  const [sort, setSort] = useState('year-desc')
+
+  const filtered = FLAT_PROJECTS
+    .filter(p => program === 'all' || p.program === program)
+    .filter(p => {
+      const q = query.trim().toLowerCase()
+      if (!q) return true
+      return p.name.toLowerCase().includes(q) || (p.desc || '').toLowerCase().includes(q)
+    })
+
+  const sorted = [...filtered].sort((a, b) => {
+    if (sort === 'year-asc') return a.year.localeCompare(b.year)
+    if (sort === 'name-asc') return a.name.localeCompare(b.name)
+    return b.year.localeCompare(a.year)
+  })
+
+  const total = FLAT_PROJECTS.length
+  const numericYears = FLAT_PROJECTS.map(p => parseInt(p.year, 10)).filter(n => !Number.isNaN(n))
+  const yearMin = Math.min(...numericYears)
+  const yearMax = Math.max(...numericYears)
+  const programCounts = FLAT_PROJECTS.reduce((acc, p) => {
+    if (p.program) acc[p.program] = (acc[p.program] || 0) + 1
+    return acc
+  }, {})
+  const topProgram = Object.entries(programCounts).sort((a, b) => b[1] - a[1])[0]
+
+  const reset = () => { setQuery(''); setProgram('all'); setSort('year-desc') }
+  const isFiltered = query !== '' || program !== 'all' || sort !== 'year-desc'
+
+  const groups = sorted.reduce((acc, p) => {
+    const last = acc[acc.length - 1]
+    if (last && last.year === p.year) last.items.push(p)
+    else acc.push({ year: p.year, items: [p] })
+    return acc
+  }, [])
+
   return (
     <section id="projects">
       <div className="eyebrow">Collaborative European research</div>
       <h2>Projects.</h2>
 
-      {PROJECTS.map(({ year, items }) => (
-        <div key={year} className="year-block">
+      <div className="metrics-grid">
+        <div className="metric"><span className="metric-num">{total}</span><span className="metric-label">total projects</span></div>
+        <div className="metric"><span className="metric-num">{yearMin}–{yearMax}</span><span className="metric-label">year span</span></div>
+        <div className="metric"><span className="metric-num">{PROJECT_PROGRAMS.length}</span><span className="metric-label">funding programs</span></div>
+        {topProgram && (
+          <div className="metric"><span className="metric-num">{topProgram[1]}× {topProgram[0]}</span><span className="metric-label">most frequent</span></div>
+        )}
+      </div>
+
+      <div className="controls">
+        <input
+          type="search"
+          className="search-input"
+          placeholder="Search by name or description…"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          aria-label="Search projects"
+        />
+        <select
+          className="select"
+          value={program}
+          onChange={(e) => setProgram(e.target.value)}
+          aria-label="Filter by funding program"
+        >
+          <option value="all">All programs</option>
+          {PROJECT_PROGRAMS.map(p => (
+            <option key={p} value={p}>{p} ({programCounts[p]})</option>
+          ))}
+        </select>
+        <select
+          className="select"
+          value={sort}
+          onChange={(e) => setSort(e.target.value)}
+          aria-label="Sort projects"
+        >
+          <option value="year-desc">Year — newest</option>
+          <option value="year-asc">Year — oldest</option>
+          <option value="name-asc">Name — A→Z</option>
+        </select>
+        {isFiltered && (
+          <button type="button" className="link-btn" onClick={reset}>Reset</button>
+        )}
+      </div>
+
+      <div className="results-count">
+        {sorted.length} of {total} projects
+      </div>
+
+      {groups.length === 0 && (
+        <p className="empty-state">No projects match the current filters.</p>
+      )}
+
+      {groups.map(({ year, items }) => (
+        <div key={year} className="year-block compact">
           <div className="year-label">{year}</div>
-          <ul className="proj-list">
+          <ul className="proj-list compact">
             {items.map((p, i) => (
               <li key={i}>
                 <span className="name">{p.name}</span>
