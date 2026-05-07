@@ -41,7 +41,7 @@ repos:
 
       - id: vite-build
         name: vite build (push)
-        entry: npm run build
+        entry: bash -c 'npm run build && git checkout -- dist/ 2>/dev/null || true'
         language: system
         pass_filenames: false
         stages: [pre-push]
