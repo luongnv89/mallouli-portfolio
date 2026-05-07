@@ -88,16 +88,9 @@ function About() {
   const totalPublications = PUBLICATIONS.reduce((n, y) => n + y.items.length, 0)
   const totalProjects = PROJECTS.reduce((n, y) => n + y.items.length, 0)
   const totalCourses = TEACHING.reduce((n, y) => n + y.items.length, 0)
-  const academicYears = TEACHING.length
   const totalCommitteePc = COMMITTEES.reduce((n, e) => n + (e.pc?.length || 0), 0)
-  const yearsService = COMMITTEES.length
+  const totalOrganizing = COMMITTEES.reduce((n, e) => n + (e.organizing?.length || 0), 0)
   const summerSchoolsCount = SUMMER_SCHOOLS.length
-  const careerStartYears = (() => {
-    const ys = PUBLICATIONS
-      .map(y => parseInt(y.year, 10))
-      .filter(n => !Number.isNaN(n))
-    return Math.max(...ys) - Math.min(...ys) + 1
-  })()
 
   return (
     <section id="about">
@@ -131,11 +124,9 @@ function About() {
         <div className="metric"><span className="metric-num">{totalPublications}</span><span className="metric-label">publications</span></div>
         <div className="metric"><span className="metric-num">{totalProjects}</span><span className="metric-label">research projects</span></div>
         <div className="metric"><span className="metric-num">{totalCourses}</span><span className="metric-label">courses taught</span></div>
-        <div className="metric"><span className="metric-num">{academicYears}</span><span className="metric-label">academic years</span></div>
         <div className="metric"><span className="metric-num">{totalCommitteePc}</span><span className="metric-label">PC memberships</span></div>
-        <div className="metric"><span className="metric-num">{yearsService}</span><span className="metric-label">years of service</span></div>
+        <div className="metric"><span className="metric-num">{totalOrganizing}</span><span className="metric-label">organizing roles</span></div>
         <div className="metric"><span className="metric-num">{summerSchoolsCount}</span><span className="metric-label">summer schools</span></div>
-        <div className="metric"><span className="metric-num">{careerStartYears}</span><span className="metric-label">years of research</span></div>
       </div>
 
       <div className="bio">
@@ -166,7 +157,7 @@ function About() {
           <span className="k">Direct</span>
           <span className="v">
             +33 (0) 6 95 93 33 39<br/>
-            <a href="mailto:wissam.mallouli@montimage.com">wissam.mallouli@montimage.com</a>
+            <a href="mailto:wissam.mallouli@montimage.eu">wissam.mallouli@montimage.eu</a>
           </span>
         </div>
       </div>
