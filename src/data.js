@@ -7,6 +7,7 @@ export const PUBLICATIONS = [
       {
         authors: 'Kitty Kioskli, Eleni Seralidou, Wissam Mallouli, Dimitrios Koutras, Pedro Tomas, Dimitrios Kallergis',
         title: 'A human-centric AI-enabled ecosystem for SME cybersecurity: Cross-sectoral practices and adaptation framework for maritime defence.',
+        pdf: '/papers/2026-electronics-sme-cybersecurity.pdf',
         venue: 'Electronics Journal, Volume 15, Article 1520. Published 4 April 2026.',
         doi: 'https://doi.org/10.3390/electronics15071520',
       },
@@ -18,6 +19,7 @@ export const PUBLICATIONS = [
       {
         authors: 'Phu Hong Nguyen, Hui Song, Rustem Dautov, Nicolas Ferry, Angel Rego, Erkuden Rios, Eider Iturbe, Valeria Valdes, Ana Rosa Cavalli, Wissam Mallouli',
         title: 'Knowledge Systematization for Security Orchestration in CPS and IoT Systems.',
+        pdf: '/papers/2025-csr-knowledge-systematization.pdf',
         venue: 'CSR 2025, pp. 672–678, Chania, Crete, Greece. August 4–6, 2025.',
       },
       {
@@ -34,52 +36,62 @@ export const PUBLICATIONS = [
       {
         authors: 'Ana Rosa Cavalli, Wissam Mallouli, Edgardo Montes de Oca, Diego Rivera',
         title: 'IoT Security Monitoring Tools and Models.',
+        pdf: '/papers/2024-iot-security-monitoring.pdf',
         venue: 'Springer Handbook of Internet of Things, 2024.',
       },
       {
         authors: 'An Ngoc Lam, Goran Brekke Svaland, Miguel Angel Barcelona, Shane Keaveney, Wissam Mallouli, Luong Nguyen, Assia Belbachir, Xiang Ma, Akhilesh Kumar Srivastava, Ahmed Nabil Belbachir',
         title: 'SINDIT: A Framework for Knowledge Graph-Based Digital Twins in Smart Manufacturing.',
+        pdf: '/papers/2024-sindit-knowledge-graph-twins.pdf',
         venue: '7th IFIP International IoT Conference (IoT 2024), Graal4IoT Workshop, Sophia Antipolis, Nice. November 6–8, 2024.',
       },
       {
         authors: 'Vinh Hoa La, Wissam Mallouli, Manh Dung Nguyen, Edgardo Montes de Oca, Ana Cavalli, Peter Voros, Karoly Kecskemeti, Mohammed B. M. Kamel, Sandor Laki, Antonios Lalas, Sarantis Kalafatidis, Asterios Mpatziakas, Nikolaos Makris, Anastasios Drosou',
         title: 'Enhancing IoT Security in 6G Networks: AI-Based Intrusion Detection, Penetration Testing, and Blockchain-based Trust Management.',
+        pdf: '/papers/2024-iot-security-6g-networks.pdf',
         venue: 'IoT 2024 Graal4IoT Workshop, Sophia Antipolis, Nice. November 6–8, 2024.',
       },
       {
         authors: 'Andrey Sadovykh, Dragos Truscan, Martin Schneider, Wissam Mallouli, Ana Cavalli, Cristina Seceleanu, Tanwir Ahmad',
         title: 'Smart Assistants for Enhancing System Security and Resilience.',
+        pdf: '/papers/2024-fedcsis-smart-assistants.pdf',
         venue: 'FedCSIS 2024, Belgrade, Serbia. September 8–11, 2024.',
       },
       {
         authors: 'Stylianos Karagiannis, Camilla Fusco, Leonidas Agathos, Wissam Mallouli, Valentina Casola, Christoforos Ntantogian, Emmanouil Magkos',
         title: 'AI-Powered Penetration Testing using Shennina: From Simulation to Validation.',
+        pdf: '/papers/2024-ares-shennina-pentest.pdf',
         venue: 'ARES 2024, Vienna, Austria. July 30 – August 2, 2024.',
       },
       {
         authors: 'Manh-Dung Nguyen, Wissam Mallouli, Ana Rosa Cavalli, Edgardo Montes de Oca',
         title: 'AI4SOAR: A Security Intelligence Tool for Automated Incident Response.',
+        pdf: '/papers/2024-ares-ai4soar.pdf',
         venue: 'ARES 2024, Vienna, Austria. July 30 – August 2, 2024.',
       },
       {
         authors: 'Charalambos Klitis, Ioannis Makris, Pavlos Bouzinis, Dimitrios Christos Asimopoulos, Wissam Mallouli, Kitty Kioskli, Eleni Seralidou, Christos Douligeris, Loizos Christofi',
         title: 'NERO: Advanced Cybersecurity Awareness Ecosystem for SMEs.',
+        pdf: '/papers/2024-ares-nero-sme-awareness.pdf',
         venue: 'ARES 2024, Vienna, Austria. July 30 – August 2, 2024.',
       },
       {
         authors: 'Ivan Orefice, Wissam Mallouli, Ana R. Cavalli, Filip Sebek, Alberto Lizarduy',
         title: 'Diagnosis Automation using Similarity Analysis: Application to Industrial Systems.',
+        pdf: '/papers/2024-icsoft-diagnosis-similarity.pdf',
         venue: 'ICSOFT 2024, pp. 331–338, Dijon, France. July 8–10, 2024. ISBN 978-989-758-706-1.',
       },
       {
         authors: 'Arash Bozorgchenani, Charilaos C. Zarakovitis, Su Fong Chien, Qiang Ni, Antonios Gouglidis, Wissam Mallouli, Heng Siong Lim',
         title: 'Intrusion Response Systems for the 5G Networks and Beyond: A New Joint Security-vs-QoS Optimization Approach.',
+        pdf: '/papers/2024-ieee-tnse-intrusion-response-5g.pdf',
         venue: 'IEEE Transactions on Network Science and Engineering, pp. 1–14. 26 January 2024.',
         doi: 'https://doi.org/10.1109/TNSE.2024.3358170',
       },
       {
         authors: 'Manh-Dung Nguyen, Vinh Hoa La, Wissam Mallouli, Ana Rosa Cavalli, Edgardo Montes de Oca',
         title: 'Towards Anomaly Detection using Explainable AI.',
+        pdf: '/papers/2024-anomaly-detection-explainable-ai.pdf',
         venue: 'CyberSecurity in a DevOps Environment: From Requirements to Monitoring, Springer. January 2024.',
       },
     ],
@@ -90,80 +102,95 @@ export const PUBLICATIONS = [
       {
         authors: 'Valeria Valdes Rios, Fatiha Zaidi, Ana Rosa Cavalli, Wissam Mallouli',
         title: 'A Resilience Component for a Digital Twin.',
+        pdf: '/papers/2023-fps-resilience-digital-twin.pdf',
         venue: 'FPS 2023, Bordeaux, France. December 11–13, 2023.',
       },
       {
         authors: 'Valeria Valdes Rios, Ana Rosa Cavalli, Fatiha Zaidi, Wissam Mallouli',
         title: 'Testing techniques to assess impact and cascading effects.',
+        pdf: '/papers/2023-cloudcom-impact-cascading.pdf',
         venue: 'CloudCom 2023, Napoli, Italy. December 4–6, 2023.',
       },
       {
         authors: 'Phu Nguyen, Rustem Dautov, Hui Song, Angel Rego, Eider Iturbe, Erkuden Rios, Diego Sagasti, Gonzalo Nicolas, Valeria Valdes, Wissam Mallouli, Ana Cavalli, Nicolas Ferry',
         title: 'Towards Smarter Security Orchestration and Automatic Response for CPS and IoT.',
+        pdf: '/papers/2023-cloudcom-cps-iot-orchestration.pdf',
         venue: 'CloudCom 2023, Napoli, Italy. December 4–6, 2023.',
       },
       {
         authors: 'Lorens Barraud, Francesco Caccavale, Jean-Baptiste Peyrat, Wissam Mallouli, Veronique Capdevielle, Hicham Khalife, Ana Rosa Cavalli',
         title: '5G SUCI Catcher: Attack and Detection.',
+        pdf: '/papers/2023-cloudcom-5g-suci-catcher.pdf',
         venue: 'CloudCom 2023, Napoli, Italy. December 4–6, 2023.',
       },
       {
         authors: 'Arash Bozorgchenani, Charilaos C. Zarakovitis, Su Fong Chien, Tiew On Ting, Qiang Ni, Wissam Mallouli',
         title: 'Novel modeling and optimization for joint Cybersecurity-vs-QoS Intrusion Detection Mechanisms in 5G networks.',
+        pdf: '/papers/2023-cn-cybersecurity-qos.pdf',
         venue: 'Computer Networks Journal, Volume 237, December 2023, 110051.',
         doi: 'https://doi.org/10.1016/j.comnet.2023.110051',
       },
       {
         authors: 'Daniele Granata, Massimiliano Rak, Wissam Mallouli',
         title: 'Automated Generation of 5G Fine-Grained Threat Models: A Systematic Approach.',
+        pdf: '/papers/2023-access-5g-threat-models.pdf',
         venue: 'IEEE Access Journal, Volume 11, pp. 129788–129804. 14 November 2023.',
         doi: 'https://doi.org/10.1109/ACCESS.2023.3333209',
       },
       {
         authors: 'Francesco G. Caccavale, Huu Nghia Nguyen, Ana R. Cavalli, Edgardo Montes de Oca, Wissam Mallouli',
         title: 'HTTP/2 Attacks Generation using 5Greplay.',
+        pdf: '/papers/2023-ares-http2-attacks-5greplay.pdf',
         venue: 'ARES 2023, pp. 138:1–138:7, Benevento, Italy. August 29, 2023.',
       },
       {
         authors: 'Erkuden Rios, Eider Iturbe, Angel Rego, Nicolas Ferry, Jean-Yves Tigli, Stephane Lavirotte, Gerald Rocher, Phu Hong Nguyen, Hui Song, Rustem Dautov, Wissam Mallouli, Ana Rosa Cavalli',
         title: 'The DYNABIC approach to resilience of critical infrastructures.',
+        pdf: '/papers/2023-ares-dynabic-resilience.pdf',
         venue: 'ARES 2023, pp. 136:1–136:8, Benevento, Italy. August 29, 2023.',
       },
       {
         authors: 'Eduard Paul Enoiu, Dragos Truscan, Andrey Sadovykh, Wissam Mallouli',
         title: 'VeriDevOps Software Methodology: Security Verification and Validation for DevOps Practices.',
+        pdf: '/papers/2023-ares-veridevops-methodology.pdf',
         venue: 'ARES 2023, pp. 135:1–135:9, Benevento, Italy. August 29, 2023.',
       },
       {
         authors: 'Manh-Dung Nguyen, Anis Bouaziz, Valeria Valdes, Ana Rosa Cavalli, Wissam Mallouli, Edgardo Montes de Oca',
         title: 'A deep learning anomaly detection framework with explainability and robustness.',
+        pdf: '/papers/2023-ares-anomaly-detection-explainability.pdf',
         venue: 'ARES 2023, pp. 134:1–134:7, Benevento, Italy. August 29, 2023.',
       },
       {
         authors: 'Alessandra Somma, Valentina Casola, Ana Rosa Cavalli, Alessandra De Benedictis, Wissam Mallouli, Valeria Valdès',
         title: 'A Cyber Digital Twin Framework to Support Cyber-Physical Systems Security.',
+        pdf: '/papers/2023-dt-cyber-digital-twin-cps.pdf',
         venue: 'IEEE Digital Twin 2023, Portsmouth, UK. August 28–31, 2023.',
       },
       {
         authors: 'Anis Bouaziz, Manh-Dung Nguyen, Valeria Valdès, Ana Rosa Cavalli, Wissam Mallouli',
         title: 'Study on Adversarial Attacks Techniques, Learning Methods and Countermeasures — Application to Anomaly Detection.',
+        pdf: '/papers/2023-icsoft-adversarial-attacks.pdf',
         venue: 'ICSOFT 2023, pp. 234–241, Rome, Italy. July 10–12, 2023.',
       },
       {
         authors: 'Zujany Salazar, Fatiha Zaïdi, Huu Nghia Nguyen, Wissam Mallouli, Ana Rosa Cavalli, Edgardo Montes De Oca',
         title: 'A Network Traffic Mutation Based Ontology, and Its Application to 5G Networks.',
+        pdf: '/papers/2023-access-traffic-mutation-5g.pdf',
         venue: 'IEEE Access Journal, Volume 11, pp. 43925–43944. 20 April 2023.',
         doi: 'https://doi.org/10.1109/ACCESS.2023.3268759',
       },
       {
         authors: 'Zujany Salazar, Huu Nghia Nguyen, Wissam Mallouli, Ana R. Cavalli, Edgardo Montes de Oca',
         title: '5Greplay: a 5G Network Traffic Fuzzer — Application to Attack Injection.',
+        pdf: '/papers/2023-corr-5greplay-fuzzer.pdf',
         venue: 'CoRR abs/2304.05719.',
         doi: 'https://doi.org/10.48550/arXiv.2304.05719',
       },
       {
         authors: 'Arash Bozorgchenani, Charilaos C. Zarakovitis, Su Fong Chien, Qiang Ni, Antonios Gouglidis, Wissam Mallouli, Heng Siong Lim',
         title: 'Joint Security-vs-QoS Game Theoretical Optimization for Intrusion Response Mechanisms for Future Network Systems.',
+        pdf: '/papers/2023-corr-security-qos-game-theory.pdf',
         venue: 'CoRR abs/2303.08544.',
         doi: 'https://doi.org/10.48550/arXiv.2303.08544',
       },
@@ -181,6 +208,7 @@ export const PUBLICATIONS = [
       {
         authors: 'Luong Nguyen, Mariana Segovia, Wissam Mallouli, Edgardo Montes de Oca, Ana R. Cavalli',
         title: 'Digital Twin for IoT Environments: a Testing and Simulation Tool.',
+        pdf: '/papers/2022-quatic-digital-twin-iot.pdf',
         venue: 'QUATIC 2022, Talavera de la Reina, Spain. September 12–14, 2022.',
       },
       {
@@ -191,22 +219,26 @@ export const PUBLICATIONS = [
       {
         authors: 'Zujany Salazar, Fatiha Zaïdi, Wissam Mallouli, Ana Rosa Cavalli, Huu Nghia Nguyen, Edgardo Montes de Oca',
         title: 'A Formal Approach for Complex Attacks Generation based on Mutation of 5G Network Traffic.',
+        pdf: '/papers/2022-icsoft-formal-attacks-5g.pdf',
         venue: 'ICSOFT 2022, pp. 234–241, Lisbon, Portugal. July 11–13, 2022.',
       },
       {
         authors: 'Giovanni Apruzzese, Pavel Laskov, Edgardo Montes de Oca, Wissam Mallouli, Luis Burdalo Rapa, Athanasios Vasileios Grammatopoulos, Fabio Di Franco',
         title: 'The Role of Machine Learning in Cybersecurity.',
+        pdf: '/papers/2022-dtrap-machine-learning-cybersecurity.pdf',
         venue: 'ACM Digital Threats: Research and Practice (DTRAP) Journal. June 2022.',
         doi: 'https://doi.org/10.48550/arXiv.2206.09707',
       },
       {
         authors: 'Zujany Salazar, Ana Rosa Cavalli, Wissam Mallouli, Filip Sebek, Fatiha Zaïdi, Monika Ewa Rakoczy',
         title: 'Monitoring Approaches for Security and Safety Analysis: Application to a Load Position System.',
+        pdf: '/papers/2022-iteqs-monitoring-security-safety.pdf',
         venue: 'ITEQS 2022 @ ICST, pp. 40–48. 4 April 2022.',
       },
       {
         authors: 'Wissam Mallouli',
         title: 'Security Testing as part of Software Quality Assurance: Principles and Challenges.',
+        pdf: '/papers/2022-iteqs-security-testing-quality.pdf',
         venue: 'ITEQS 2022 @ ICST, p. 29. 4 April 2022.',
       },
     ],
@@ -217,47 +249,56 @@ export const PUBLICATIONS = [
       {
         authors: 'Zujany Salazar, Huu Nghia Nguyen, Wissam Mallouli, Ana Rosa Cavalli, Edgardo Montes de Oca',
         title: 'Attack Configuration Engine for 5G Networks.',
+        pdf: '/papers/2021-ictss-attack-config-5g.pdf',
         venue: 'ICTSS 2021 (Project Report). November 10–11, 2021.',
       },
       {
         authors: 'Andrey Sadovykh, Zujany Salazar, Wissam Mallouli, Ana Rosa Cavalli, Dragos Truscan, Eduard Paul Enoiu, Rosa Iglesias, Olga Hendel',
         title: 'NLP-based Testing and Monitoring for Security Checking.',
+        pdf: '/papers/2021-ictss-nlp-testing-monitoring.pdf',
         venue: 'ICTSS 2021 (Project Report). November 10–11, 2021.',
       },
       {
         authors: 'Luong Nguyen, Vinh Hoa La, Wissam Mallouli, Edgardo Montes de Oca',
         title: 'Validation, Verification and Root-Cause Analysis.',
+        pdf: '/papers/2021-book-validation-verification-rca.pdf',
         venue: 'DevOps for Trustworthy Smart IoT Systems, Now Publishers, pp. 173–213.',
         doi: 'https://doi.org/10.1561/9781680838251.ch8',
       },
       {
         authors: 'Max van Haastrecht, Injy Sarhan, Alireza Shojaifar, Louis Baumgartner, Wissam Mallouli, Marco Spruit',
         title: 'A Threat-Based Cybersecurity Risk Assessment Approach Addressing SME Needs.',
+        pdf: '/papers/2021-ares-threat-cybersecurity-sme.pdf',
         venue: 'ARES 2021, pp. 158:1–158:12, Vienna, Austria. August 23–26, 2021.',
       },
       {
         authors: 'José Javier de Vicente Mohino, Wissam Mallouli, José Francisco Ruiz, Max van Haastrecht',
         title: 'GEIGER: Solution for small businesses to protect themselves against cyber-threats.',
+        pdf: '/papers/2021-ares-geiger-sme.pdf',
         venue: 'ARES 2021, pp. 157:1–157:4, Vienna, Austria. August 23–26, 2021.',
       },
       {
         authors: 'Zujany Salazar, Huu Nghia Nguyen, Wissam Mallouli, Ana R. Cavalli, Edgardo Montes de Oca',
         title: '5Greplay: a 5G Network Traffic Fuzzer — Application to Attack Injection.',
+        pdf: '/papers/2021-ares-5greplay-fuzzer.pdf',
         venue: 'ARES 2021, pp. 106:1–106:8, Vienna, Austria. August 23–26, 2021.',
       },
       {
         authors: 'Charilaos C. Zarakovitis, Dimitrios Klonidis, Zujany Salazar, Anna Prudnikova, Arash Bozorgchenani, Qiang Ni, Charalambos Klitis, George Guirgis, Ana R. Cavalli, Nicholas Sgouros, Eftychia Makri, Antonios Lalas, Konstantinos Votis, George Amponis, Wissam Mallouli',
         title: 'SANCUS: Multi-layers Vulnerability Management Framework for Cloud-native 5G networks.',
+        pdf: '/papers/2021-ares-sancus-5g-vulnerabilities.pdf',
         venue: 'ARES 2021, pp. 108:1–108:10, Vienna, Austria. August 23–26, 2021.',
       },
       {
         authors: 'Vinh Hoa La, Edgardo Montes de Oca, Wissam Mallouli, Ana R. Cavalli',
         title: 'A Framework for Security Monitoring of Real IoT Testbeds.',
+        pdf: '/papers/2021-icsoft-iot-testbeds-monitoring.pdf',
         venue: 'ICSOFT 2021, pp. 645–652. July 6–8, 2021.',
       },
       {
         authors: 'Andrey Sadovykh, Gunnar Widforss, Dragos Truscan, Eduard Paul Enoiu, Wissam Mallouli, Rosa Iglesias, Alessandra Bagnato, Olga Hendel',
         title: 'VeriDevOps: Automated Protection and Prevention to Meet Security Requirements in DevOps.',
+        pdf: '/papers/2021-date-veridevops-devops-security.pdf',
         venue: 'DATE 2021, pp. 1330–1333. 1 February 2021.',
       },
     ],
@@ -268,6 +309,7 @@ export const PUBLICATIONS = [
       {
         authors: 'Wissam Mallouli, Ana Rosa Cavalli, Alessandra Bagnato, Edgardo Montes de Oca',
         title: 'Metrics-driven DevSecOps.',
+        pdf: '/papers/2020-icsoft-metrics-devsecops.pdf',
         venue: 'ICSOFT 2020, pp. 228–233, Lieusaint, Paris, France. July 7–9, 2020.',
       },
     ],
@@ -278,27 +320,32 @@ export const PUBLICATIONS = [
       {
         authors: 'Hoang Long Mai, Guillaume Doyen, Wissam Mallouli, Edgardo Montes de Oca, Olivier Festor',
         title: 'Towards Content-Centric Control Plane Supporting Efficient Anomaly Detection Functions.',
+        pdf: '/papers/2019-cnsm-content-centric-anomaly.pdf',
         venue: 'CNSM 2019, Halifax, Canada. October 21–25, 2019.',
       },
       {
         authors: 'Diego Rivera, Edgardo Montes de Oca, Wissam Mallouli, Ana Cavalli, Brecht Vermeulen, Matevz Vucnik',
         title: 'IoT Network Monitoring and Test of an Industrial Solution on Fed4Fire+ Platforms.',
+        pdf: '/papers/2019-ictss-iot-monitoring-fed4fire.pdf',
         venue: 'ICTSS 2019, Paris. October 15–17, 2019.',
       },
       {
         authors: 'Sarah Dahab, Stephane Maag, Wissam Mallouli, Ana Cavalli',
         title: 'Smart measurements and analysis for software quality enhancement.',
+        pdf: '/papers/2019-ccis-smart-measurements-quality.pdf',
         venue: 'CCIS Series, Springer.',
       },
       {
         authors: 'Valentina Casola, Alessandra De Benedictis, Antonio Riccio, Diego Rivera, Wissam Mallouli, Edgardo Montes de Oca',
         title: 'A security monitoring system for Internet of Things.',
+        pdf: '/papers/2019-iot-security-monitoring.pdf',
         venue: 'Internet of Things, Elsevier. 2 July 2019.',
         doi: 'https://doi.org/10.1016/j.iot.2019.100080',
       },
       {
         authors: 'Hoang Long Mai, Messaoud Aouadj, Guillaume Doyen, Wissam Mallouli, Edgardo Montes de Oca, Olivier Festor',
         title: 'Toward Content-Oriented Orchestration: SDN and NFV as Enabling Technologies for NDN.',
+        pdf: '/papers/2019-im-content-orchestration-sdn-nfv.pdf',
         venue: 'IFIP/IEEE IM 2019, Washington DC, USA. April 8–12, 2019.',
       },
       {
@@ -310,11 +357,13 @@ export const PUBLICATIONS = [
       {
         authors: 'Guillaume Doyen, Thibault Cholez, Wissam Mallouli, Bertrand Mathieu, Hoang-Long Mai, Xavier Marchal, Daishi Kondo, Messaoud Aouadj, Alain Ploix, Edgardo Montes-de-Oca, Olivier Festor',
         title: 'An Orchestrated NDN Virtual Infrastructure Transporting Web Traffic: Design, Implementation, and First Experiments with Real End Users.',
+        pdf: '/papers/2019-commmag-ndn-virtual-infra.pdf',
         venue: 'IEEE Communications Magazine, Special Issue on Information-Centric Networking.',
       },
       {
         authors: 'Erkuden Rios Velasco, Eider Iturbe, Xabier Larrucea, Massimiliano Rak, Wissam Mallouli, Jacek Dominiak, Victor Muntes, Peter Matthews, Luis Gonzalez Moctezuma',
         title: 'Service Level Agreement-based GDPR Compliance and Security Assurance in (multi)Cloud-based systems.',
+        pdf: '/papers/2019-iet-sla-gdpr-multi-cloud.pdf',
         venue: 'IET Software Journal, Special Issue on Security and Privacy in Cloud-based Systems. 1 February 2019.',
         doi: 'https://doi.org/10.1049/iet-sen.2018.5293',
       },
@@ -326,33 +375,39 @@ export const PUBLICATIONS = [
       {
         authors: 'Sarah Dahab, Erika Silva, Stephane Maag, Ana Rosa Cavalli, Wissam Mallouli',
         title: 'Enhancing software development process quality based on metrics correlation and suggestion.',
+        pdf: '/papers/2018-icsoft-software-process-metrics.pdf',
         venue: 'ICSOFT 2018, Porto, Portugal. July 26–28, 2018.',
       },
       {
         authors: 'Tan Nguyen, Hoang Long Mai, Guillaume Doyen, Remi Cogranne, Wissam Mallouli, Edgardo Montes de Oca, Olivier Festor',
         title: 'A Security Monitoring Plane for Named Data Networking Deployment.',
+        pdf: '/papers/2018-commmag-ndn-security-monitoring.pdf',
         venue: 'IEEE Communications Magazine, Vol. 56, Issue 11, pp. 88–94. 19 November 2018.',
         doi: 'https://doi.org/10.1109/MCOM.2018.1701135',
       },
       {
         authors: 'Hoang Long Mai, Tan Nguyen, Guillaume Doyen, Remi Cogranne, Wissam Mallouli, Edgardo Montes de Oca, Olivier Festor',
         title: 'Towards a Security Monitoring Plane for Named Data Networking and its Application against Content Poisoning Attack.',
+        pdf: '/papers/2018-noms-ndn-security-monitoring.pdf',
         venue: 'IEEE/IFIP NOMS 2018, Taipei, Taiwan. April 23–27, 2018.',
       },
       {
         authors: 'Xavier Marchal, Moustapha El Aoun, Bertrand Mathieu, Thibault Cholez, Guillaume Doyen, Wissam Mallouli, Olivier Festor',
         title: 'Leveraging NFV for the Deployment of NDN: Application to HTTP Traffic Transport.',
+        pdf: '/papers/2018-noms-nfv-ndn-deployment.pdf',
         venue: 'IEEE/IFIP NOMS 2018, Taipei, Taiwan. April 23–27, 2018.',
       },
       {
         authors: 'Khalifa Toumi, Mohamed Aouadi, Ana R. Cavalli, Wissam Mallouli, Jordi Puiggal Allepuz, Pol Valletb Montfort',
         title: 'A Framework for Testing and Monitoring Security Policies: Application to an Electronic Voting System.',
+        pdf: '/papers/2018-compj-testing-monitoring-policies.pdf',
         venue: 'The Computer Journal, Section D: Security in Computer Systems and Networks. 29 March 2018.',
         doi: 'https://doi.org/10.1093/comjnl/bxy018',
       },
       {
         authors: 'Hoang Long Mai, Messaoud Aouadj, Guillaume Doyen, Daishi Kondo, Xavier Marchal, Thibault Cholez, Edgardo Montes de Oca, Wissam Mallouli',
         title: 'Implementation of Content Poisoning Attack Detection and Reaction in Virtualized NDN Networks.',
+        pdf: '/papers/2018-icin-content-poisoning-ndn.pdf',
         venue: 'ICIN 2018, Paris, France. February 20–22, 2018.',
       },
     ],
@@ -363,26 +418,31 @@ export const PUBLICATIONS = [
       {
         authors: 'Erkuden Rios, Eider Iturbe, Wissam Mallouli, Massimiliano Rak',
         title: 'Dynamic Security Assurance in Multi-Cloud DevOps.',
+        pdf: '/papers/2017-spc-multi-cloud-devops.pdf',
         venue: 'SPC 2017 @ IEEE-CNS, Las Vegas, NV, USA. October 9–11, 2017.',
       },
       {
         authors: 'Erkuden Rios, Massimiliano Rak, Eider Iturbe, Wissam Mallouli',
         title: 'SLA-Based Continuous Security Assurance in Multi-Cloud DevOps.',
+        pdf: '/papers/2017-secse-sla-multi-cloud-devops.pdf',
         venue: 'SecSE 2017 @ ESORICS 2017, Oslo, Norway. September 14, 2017.',
       },
       {
         authors: 'Pamela Carvallo, Ana R. Cavalli, Wissam Mallouli',
         title: 'A platform for security monitoring of multi-cloud applications.',
+        pdf: '/papers/2017-psi-multi-cloud-monitoring.pdf',
         venue: 'PSI 2017, Moscow, Russia. June 27–29, 2017.',
       },
       {
         authors: 'Alessandra Bagnato, Andrey Sadovykh, Sarah Dahab, Stéphane Maag, Ana R. Cavalli, Alin Stefanescu, Jérome Rocheteau, Sana Mallouli, Wissam Mallouli',
         title: 'Modeling OMG SMM metrics using the Modelio modeling tool in the MEASURE project.',
+        pdf: '/papers/2017-genie-omg-smm-modelio.pdf',
         venue: 'Revue Génie Logiciel, 120, pp. 46–52.',
       },
       {
         authors: 'Théo Combe, Wissam Mallouli, Thibault Cholez, Guillaume Doyen, Bertrand Mathieu, Edgardo Montes de Oca',
         title: 'A SDN and NFV use-case: NDN implementation and security monitoring.',
+        pdf: '/papers/2017-gssnoa-sdn-nfv-ndn.pdf',
         venue: 'Guide to Security in SDN and NFV, Springer Computer Communications and Networks Series. ISBN 3319646524. 1 October 2017.',
       },
       {
@@ -398,26 +458,31 @@ export const PUBLICATIONS = [
       {
         authors: 'Xavier Marchal, Moustapha El Aoun, Bertrand Mathieu, Wissam Mallouli, Thibault Cholez, Guillaume Doyen, Patrick Truong, Alain Ploix, Edgardo Montes De Oca',
         title: 'A virtualized and monitored NDN infrastructure featuring a NDN/HTTP gateway.',
+        pdf: '/papers/2016-acmicn-ndn-http-gateway.pdf',
         venue: 'ACM ICN 2016 Demo Session, Kyoto, Japan. September 26–28, 2016.',
       },
       {
         authors: 'Diego Rivera, Ana R. Cavalli, Natalia Kushik, Wissam Mallouli',
         title: 'An Implementation of a QoE Evaluation Technique Including Business Model Parameters.',
+        pdf: '/papers/2016-icsoft-qoe-business-model.pdf',
         venue: 'ICSOFT-PT 2016, Lisbon, Portugal. July 24–26, 2016.',
       },
       {
         authors: 'Erkuden Rios, Wissam Mallouli, Massimiliano Rak, Valentina Casola, Antonio M. Ortiz',
         title: 'SLA-driven Monitoring of Multi-Cloud Application Components using the MUSA framework.',
+        pdf: '/papers/2016-stam-musa-multi-cloud-sla.pdf',
         venue: 'STAM 2016, Nara, Japan. June 27, 2016.',
       },
       {
         authors: 'Georges Ouffoué, Antonio M. Ortiz, Ana Cavalli, Wissam Mallouli, Josep Domingo-Ferrer, David Sanchez, Fatiha Zaidi',
         title: 'Intrusion detection and attack tolerance for cloud environments: the CLARUS approach.',
+        pdf: '/papers/2016-stam-clarus-cloud-intrusion.pdf',
         venue: 'STAM 2016, Nara, Japan. June 27, 2016.',
       },
       {
         authors: 'Jose-Miguel Horcas, Monica Pinto, Lidia Fuentes, Wissam Mallouli, Edgardo Montes de Oca',
         title: 'An approach for deploying and monitoring dynamic security policies.',
+        pdf: '/papers/2016-csj-dynamic-security-policies.pdf',
         venue: 'Computers & Security Journal, Vol. 58, pp. 20–38. May 2016.',
         doi: 'https://doi.org/10.1016/j.cose.2015.11.007',
       },
@@ -429,21 +494,25 @@ export const PUBLICATIONS = [
       {
         authors: 'Raul Fuentes, Ana Cavalli, Wissam Mallouli, Javier Baliosian',
         title: 'Monitoring-based Validation of Functional and Performance Aspects of a Greedy Ant Colony Optimization Protocol.',
+        pdf: '/papers/2015-lanoms-ant-colony.pdf',
         venue: 'LANOMS 2015, Joao Pessoa, Brazil. October 1–3, 2015.',
       },
       {
         authors: 'Antonio M. Ortiz, Erkuden Rios, Wissam Mallouli, Eider Iturbe, Edgardo Montes de Oca',
         title: 'Self-protecting Multi-Cloud Applications.',
+        pdf: '/papers/2015-spc-self-protecting-multi-cloud.pdf',
         venue: 'SPC 2015, Florence, Italy. September 30, 2015.',
       },
       {
         authors: 'Jose-Miguel Horcas, Monica Pinto, Lidia Fuentes, Wissam Mallouli, Edgardo Montes de Oca',
         title: 'Dynamic Deployment and Monitoring of Security Policies.',
+        pdf: '/papers/2015-trustbus-dynamic-security-policies.pdf',
         venue: 'TrustBus 2015, Valencia, Spain. September 1–2, 2015.',
       },
       {
         authors: 'Bertrand Mathieu, Guillaume Doyen, Wissam Mallouli, Thomas Silverston, Olivier Bettan, François-Xavier Aguessy, Thibault Cholez, Abdelkader Lahmadi, Patrick Truong, Edgardo Montes de Oca',
         title: 'Monitoring and Securing New Functions Deployed in a Virtualized Networking Environment.',
+        pdf: '/papers/2015-stam-monitoring-virtualized-networks.pdf',
         venue: 'STAM 2015 @ ARES 2015, Toulouse, France. August 24, 2015.',
       },
       {
@@ -454,6 +523,7 @@ export const PUBLICATIONS = [
       {
         authors: 'Felipe Barbosa Abreu, Anderson Morais, Ana Cavalli, Bachar Wehbi, Wissam Mallouli, Edgardo Montes de Oca',
         title: 'An Effective Attack Detection Approach in Wireless Mesh Networks.',
+        pdf: '/papers/2014-ijssc-attack-detection-mesh.pdf',
         venue: 'IJSSC, Vol. 5, No. 2, pp. 89–99. 2015.',
         doi: 'https://doi.org/10.1504/IJSSC.2015.069204',
       },
@@ -465,21 +535,25 @@ export const PUBLICATIONS = [
       {
         authors: 'Khalifa Toumi, Wissam Mallouli, Ana Cavalli, Edgardo Montes De Oca, Cesar Andres',
         title: 'How to Evaluate Trust Using MMT.',
+        pdf: '/papers/2014-nss-trust-mmt.pdf',
         venue: 'NSS 2014, Xi\'an, China. October 15–17, 2014.',
       },
       {
         authors: 'Natalia Kushik, Jeevan Pokhrel, Nina Yevtushenko, Ana Cavalli, Wissam Mallouli',
         title: 'QoE Prediction for Multimedia Services: Comparing Fuzzy and Logic Network Approaches.',
+        pdf: '/papers/2014-ijoci-qoe-multimedia.pdf',
         venue: 'IJOCI, Vol. 4, No. 3, pp. 44–65. July–September 2014.',
       },
       {
         authors: 'Jeevan Pokhrel, Felipe Lalanne, Ana Cavalli, Wissam Mallouli',
         title: 'QoE estimation for web service selection using a Fuzzy-Rough hybrid expert system.',
+        pdf: '/papers/2014-aina-qoe-fuzzy-rough.pdf',
         venue: 'AINA 2014, Victoria, Canada. May 13–16, 2014.',
       },
       {
         authors: 'Natalia Kushik, Nina Yevtushenko, Ana Cavalli, Wissam Mallouli, Jeevan Pokhrel',
         title: 'Evaluating web service QoE by learning logic networks.',
+        pdf: '/papers/2014-webist-qoe-logic-networks.pdf',
         venue: 'WEBIST 2014, Barcelona, Spain. April 2014.',
       },
     ],
@@ -495,6 +569,7 @@ export const PUBLICATIONS = [
       {
         authors: 'Wissam Mallouli',
         title: 'Network Monitoring for Security Checking Using MMT.',
+        pdf: '/papers/2013-rcis-network-monitoring-mmt.pdf',
         venue: 'RCIS Workshop on Testing and Maintenance of Future Internet Applications, Paris, France. May 2013.',
       },
     ],
@@ -505,11 +580,13 @@ export const PUBLICATIONS = [
       {
         authors: 'Wissam Mallouli, Bachar Wehbi, Edgardo Montes de Oca, Michel Bourdelles',
         title: 'Online Network Traffic Security Inspection Using MMT Tool.',
+        pdf: '/papers/2012-stv-online-traffic-mmt.pdf',
         venue: 'STV 2012, Paris, France. October 2012.',
       },
       {
         authors: 'Amel Mammar, Wissam Mallouli, Ana Cavalli',
         title: 'A systematic approach to integrate common timed security rules within a TEFSM-based system specification.',
+        pdf: '/papers/2011-ist-timed-security-tefsm.pdf',
         venue: 'Information and Software Technology Journal. January 2012. ISSN 0950-5849.',
       },
     ],
@@ -520,17 +597,20 @@ export const PUBLICATIONS = [
       {
         authors: 'Amel Mammar, Ana Cavalli, Willy Jimenez, Wissam Mallouli, Edgardo Montes de Oca',
         title: 'Using testing techniques for vulnerability detection in C programs.',
+        pdf: '/papers/2011-ictss-vulnerability-c-programs.pdf',
         venue: 'ICTSS 2011, Paris, France. November 7–10, 2011.',
         note: 'Best Paper Award',
       },
       {
         authors: 'Wissam Mallouli, Amel Mammar, Ana Cavalli, Willy Jimenez',
         title: 'VDC-Based Dynamic Code Analysis: Application to C Programs.',
+        pdf: '/papers/2011-jisis-vdc-dynamic-c-analysis.pdf',
         venue: 'JISIS, Vol. 1, Issue 2/3, pp. 4–20. August 2011.',
       },
       {
         authors: 'Wissam Mallouli, Bachar Wehbi, Ana Cavalli, Stéphane Maag',
         title: 'Formal Supervision of Mobile Ad hoc Networks for Security Flaws Detection.',
+        pdf: '/papers/2009-igi-manet-security-flaws.pdf',
         venue: 'Security Engineering Techniques and Solutions for Information Systems, IGI Global. ISBN 9781615208036. 15 May 2011.',
       },
     ],
@@ -541,31 +621,37 @@ export const PUBLICATIONS = [
       {
         authors: 'Gerardo Morales, Stephane Maag, Ana Cavalli, Wissam Mallouli, Edgardo Montes de Oca, Bachar Wehbi',
         title: 'Timed Extended Invariants for the Passive Testing of Web Services.',
+        pdf: '/papers/2010-icws-timed-invariants-ws.pdf',
         venue: 'ICWS 2010, Miami, FL, USA. July 5–10, 2010.',
       },
       {
         authors: 'Ana Cavalli, Tien-Dung Cao, Wissam Mallouli, Eliane Martins, Andrey Sadovykh, Sebastien Salva, Fatiha Zaidi',
         title: 'WebMov: A dedicated framework for the modelling and testing of Web Services composition.',
+        pdf: '/papers/2010-icws-webmov-framework.pdf',
         venue: 'ICWS 2010, Miami, FL, USA. July 5–10, 2010.',
       },
       {
         authors: 'Wissam Mallouli, Mounir Lallali, Amel Mammar, Gerardo Morales, Ana Rosa Cavalli',
         title: 'Modeling and Testing Secure Web Applications.',
+        pdf: '/papers/2010-book-modeling-secure-web-apps.pdf',
         venue: 'Web-Based Information Technologies and Distributed Systems, pp. 207–256. ISBN 978-90-78677-28-4. June 2010.',
       },
       {
         authors: 'Bachar Wehbi, Wissam Mallouli',
         title: 'Functional and Security Test Automation with TestGen (TEG) Suite.',
+        pdf: '/papers/2010-secmda-testgen-tools.pdf',
         venue: 'SEC-MDA 2010 @ ECMFA 2010, Paris, France. June 16, 2010.',
       },
       {
         authors: 'Lina Bentakouk, Fayçal Bessayah, Mounir Lallali, Wissam Mallouli, Andrey Sadovykh',
         title: 'A Framework for Modeling and Testing of Web Services Orchestration.',
+        pdf: '/papers/2010-mda4sc-ws-orchestration.pdf',
         venue: 'MDA4ServiceCloud 2010, Paris, France. June 15, 2010.',
       },
       {
         authors: 'Alessandra Bagnato, Fabio Raiteri, Wissam Mallouli, Bachar Wehbi',
         title: 'Practical experience gained from passive testing of Web based systems.',
+        pdf: '/papers/2010-mdv-passive-testing-web.pdf',
         venue: 'MDV 2010 @ ICST 2010, Paris, France. April 10, 2010.',
       },
     ],
@@ -576,11 +662,13 @@ export const PUBLICATIONS = [
       {
         authors: 'Wissam Mallouli, Amel Mammar, Ana Rosa Cavalli',
         title: 'A Formal Framework to Integrate Timed Security Rules within a TEFSM-Based System Specification.',
+        pdf: '/papers/2009-apsec-timed-security-tefsm.pdf',
         venue: 'APSEC 2009, Penang, Malaysia. December 1–3, 2009.',
       },
       {
         authors: 'Felipe Lalanne, Stéphane Maag, Edgardo Montes de Oca, Ana Cavalli, Wissam Mallouli, Arnaud Gonguet',
         title: 'An Automated Passive Testing Approach for the IMS PoC Service.',
+        pdf: '/papers/2009-ase-ims-poc-passive-testing.pdf',
         venue: 'ASE 2009, Auckland, New Zealand. November 16–20, 2009.',
       },
       {
@@ -591,11 +679,13 @@ export const PUBLICATIONS = [
       {
         authors: 'Ana Rosa Cavalli, Azzedine Benameur, Wissam Mallouli, Keqin Li',
         title: 'A Passive Testing Approach for Security Checking and its Practical Usage for Web Services Monitoring.',
+        pdf: '/papers/2009-notere-passive-security.pdf',
         venue: 'NOTERE 2009, Montréal, Canada. June 29 – July 3, 2009.',
       },
       {
         authors: 'Erkoden Rios, Per Håkon Meland, Shanai Ardi, Alessandra Bagnato, Jostein Jensen, Wissam Mallouli, Fabio Raiteri, Txus Sanchez, Inger Anne Tøndel, Bachar Wehbi',
         title: 'A qualitative evaluation of model-based security activities for software development.',
+        pdf: '/papers/2009-sec-mda-evaluation.pdf',
         venue: 'SEC-MDA 2009, Enschede, The Netherlands. June 24, 2009.',
       },
     ],
@@ -606,31 +696,37 @@ export const PUBLICATIONS = [
       {
         authors: 'Wissam Mallouli, Fayçal Bessayah, Ana Rosa Cavalli, Azzedine Benameur',
         title: 'Security Rules Specification and Analysis Based on Passive Testing.',
+        pdf: '/papers/2008-globecom-passive-testing-rules.pdf',
         venue: 'IEEE GLOBECOM 2008, New Orleans, USA. November 30 – December 4, 2008.',
       },
       {
         authors: 'Wissam Mallouli, Mounir Lallali, Gerardo Morales, Ana Rosa Cavalli',
         title: 'Modeling and Testing Secure Web-Based Systems: Application to an Industrial Case Study.',
+        pdf: '/papers/2008-sitis-modeling-secure-web.pdf',
         venue: 'SITIS 2008, Bali, Indonesia. November 30 – December 3, 2008.',
       },
       {
         authors: 'Ana Rosa Cavalli, Edgardo Montes De Oca, Wissam Mallouli, Mounir Lallali',
         title: 'Two Complementary Tools for the Formal Testing of Distributed Systems with Time Constraints.',
+        pdf: '/papers/2008-dsrt-demo-formal-testing.pdf',
         venue: 'DS-RT 2008 (Demo), Vancouver, Canada. October 27–29, 2008.',
       },
       {
         authors: 'Wissam Mallouli, Amel Mammar, Ana Rosa Cavalli',
         title: 'Modeling System Security Rules with Time Constraints Using Timed Extended Finite State Machines.',
+        pdf: '/papers/2008-dsrt-tefsm-time-constraints.pdf',
         venue: 'DS-RT 2008, Vancouver, Canada. October 27–29, 2008.',
       },
       {
         authors: 'Wissam Mallouli, Bachar Wehbi, Ana Rosa Cavalli',
         title: 'Distributed Monitoring in Ad Hoc Networks: Conformance and Security Checking.',
+        pdf: '/papers/2008-adhocnow-distributed-monitoring.pdf',
         venue: 'ADHOC-Now 2008, Sophia Antipolis, France. September 10–12, 2008.',
       },
       {
         authors: 'Wissam Mallouli, Gerardo Morales, Ana Rosa Cavalli',
         title: 'Testing Security Policies for Web Applications.',
+        pdf: '/papers/2008-sectest-web-policy-testing.pdf',
         venue: 'SECTEST 2008, Lillehammer, Norway. April 9, 2008.',
       },
     ],
@@ -641,11 +737,13 @@ export const PUBLICATIONS = [
       {
         authors: 'Wissam Mallouli, Ana Rosa Cavalli',
         title: 'Testing Security Rules with Decomposable Activities.',
+        pdf: '/papers/2007-hase-decomposable-activities.pdf',
         venue: 'IEEE HASE 2007, Dallas, Texas. November 14–16, 2007.',
       },
       {
         authors: 'Wissam Mallouli, Jean-Marie Orset, Ana Rosa Cavalli, Nora Cuppens, Frédéric Cuppens',
         title: 'A Formal Approach for Testing Security Rules.',
+        pdf: '/papers/2007-sacmat-formal-security-testing.pdf',
         venue: 'ACM SACMAT 2007, Sophia Antipolis, France. June 20–22, 2007.',
       },
       {
@@ -661,11 +759,13 @@ export const PUBLICATIONS = [
       {
         authors: 'Ana Rosa Cavalli, Stéphane Maag, Wissam Mallouli, Mickael Marche, Yves-Marie Quemener',
         title: 'Application of Two Test Generation Tools to an Industrial Case Study.',
+        pdf: '/papers/2006-testcom-test-generation.pdf',
         venue: 'IFIP TestCom 2006, New York, USA. May 2006.',
       },
       {
         authors: 'Bachar Wehbi, Wissam Mallouli, Ana Rosa Cavalli',
         title: 'Light Client Management Protocol for Wireless Mesh Networks.',
+        pdf: '/papers/2006-mdm-mesh-light-client.pdf',
         venue: 'MDM 2006, Nara, Japan. May 2006.',
       },
     ],
