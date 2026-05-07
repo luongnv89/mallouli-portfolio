@@ -482,60 +482,134 @@ function Projects() {
   )
 }
 
+const ROLE_LABELS = {
+  pc: 'Program Committee',
+  organizing: 'Organizing · Editor',
+  evaluation: 'Evaluation Committee',
+  reviews: 'Reviews',
+}
+
+const FLAT_COMMITTEES = COMMITTEES.flatMap((entry) =>
+  Object.entries(ROLE_LABELS).flatMap(([key]) =>
+    (entry[key] || []).map(text => ({ year: entry.year, role: key, text }))
+  )
+)
+
 function Committees() {
-  const [showAll, setShowAll] = useState(false)
-  const visible = showAll ? COMMITTEES : COMMITTEES.slice(0, 4)
+  const [query, setQuery] = useState('')
+  const [role, setRole] = useState('all')
+  const [sort, setSort] = useState('year-desc')
+
+  const filtered = FLAT_COMMITTEES
+    .filter(c => role === 'all' || c.role === role)
+    .filter(c => {
+      const q = query.trim().toLowerCase()
+      if (!q) return true
+      return c.text.toLowerCase().includes(q)
+    })
+
+  const sorted = [...filtered].sort((a, b) => {
+    if (sort === 'year-asc') return a.year.localeCompare(b.year)
+    return b.year.localeCompare(a.year)
+  })
+
+  // Counts (computed from full data — not the filtered view)
+  const roleCounts = FLAT_COMMITTEES.reduce((acc, c) => {
+    acc[c.role] = (acc[c.role] || 0) + 1
+    return acc
+  }, {})
+  const totalEntries = FLAT_COMMITTEES.length
+  const yearsOfService = COMMITTEES.length
+
+  const reset = () => { setQuery(''); setRole('all'); setSort('year-desc') }
+  const isFiltered = query !== '' || role !== 'all' || sort !== 'year-desc'
+
+  // Group by year, then within a year group by role
+  const groupedByYear = sorted.reduce((acc, c) => {
+    const last = acc[acc.length - 1]
+    if (last && last.year === c.year) last.entries.push(c)
+    else acc.push({ year: c.year, entries: [c] })
+    return acc
+  }, [])
 
   return (
     <section id="committees">
       <div className="eyebrow">Service to the research community</div>
       <h2>Committees.</h2>
 
-      {visible.map((entry) => (
-        <div key={entry.year} className="year-block">
-          <div className="year-label">{entry.year}</div>
-          <div>
-            {entry.evaluation && (
-              <div className="committee-section">
-                <h4>Evaluation Committee</h4>
-                <ul className="com-list">
-                  {entry.evaluation.map((x, i) => <li key={i}>{x}</li>)}
-                </ul>
-              </div>
-            )}
-            {entry.pc && (
-              <div className="committee-section">
-                <h4>Program Committee</h4>
-                <ul className="com-list">
-                  {entry.pc.map((x, i) => <li key={i}>{x}</li>)}
-                </ul>
-              </div>
-            )}
-            {entry.organizing && (
-              <div className="committee-section">
-                <h4>Organizing Committee · Editor</h4>
-                <ul className="com-list">
-                  {entry.organizing.map((x, i) => <li key={i}>{x}</li>)}
-                </ul>
-              </div>
-            )}
-            {entry.reviews && (
-              <div className="committee-section">
-                <h4>Reviews</h4>
-                <ul className="com-list">
-                  {entry.reviews.map((x, i) => <li key={i}>{x}</li>)}
-                </ul>
-              </div>
-            )}
-          </div>
-        </div>
-      ))}
+      <div className="metrics-grid">
+        <div className="metric"><span className="metric-num">{yearsOfService}</span><span className="metric-label">years of service</span></div>
+        <div className="metric"><span className="metric-num">{roleCounts.pc || 0}</span><span className="metric-label">PC memberships</span></div>
+        <div className="metric"><span className="metric-num">{roleCounts.organizing || 0}</span><span className="metric-label">organizing roles</span></div>
+        <div className="metric"><span className="metric-num">{roleCounts.evaluation || 0}</span><span className="metric-label">evaluations</span></div>
+        <div className="metric"><span className="metric-num">{roleCounts.reviews || 0}</span><span className="metric-label">reviews</span></div>
+      </div>
 
-      <p className="more-link">
-        <button className="link-btn" onClick={() => setShowAll(!showAll)}>
-          {showAll ? 'Show recent only' : `Show all ${COMMITTEES.length} years`}
-        </button>
-      </p>
+      <div className="controls">
+        <input
+          type="search"
+          className="search-input"
+          placeholder="Search by venue or conference name…"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          aria-label="Search committees"
+        />
+        <select
+          className="select"
+          value={role}
+          onChange={(e) => setRole(e.target.value)}
+          aria-label="Filter by role"
+        >
+          <option value="all">All roles</option>
+          {Object.entries(ROLE_LABELS).map(([k, label]) => (
+            <option key={k} value={k}>{label} ({roleCounts[k] || 0})</option>
+          ))}
+        </select>
+        <select
+          className="select"
+          value={sort}
+          onChange={(e) => setSort(e.target.value)}
+          aria-label="Sort committees"
+        >
+          <option value="year-desc">Year — newest</option>
+          <option value="year-asc">Year — oldest</option>
+        </select>
+        {isFiltered && (
+          <button type="button" className="link-btn" onClick={reset}>Reset</button>
+        )}
+      </div>
+
+      <div className="results-count">
+        {sorted.length} of {totalEntries} entries
+      </div>
+
+      {groupedByYear.length === 0 && (
+        <p className="empty-state">No committee entries match the current filters.</p>
+      )}
+
+      {groupedByYear.map(({ year, entries }) => {
+        const byRole = entries.reduce((acc, c) => {
+          (acc[c.role] = acc[c.role] || []).push(c.text)
+          return acc
+        }, {})
+        return (
+          <div key={year} className="year-block compact">
+            <div className="year-label">{year}</div>
+            <div>
+              {Object.entries(ROLE_LABELS).map(([k, label]) =>
+                byRole[k] && (
+                  <div key={k} className="committee-section">
+                    <h4>{label}</h4>
+                    <ul className="com-list">
+                      {byRole[k].map((x, i) => <li key={i}>{x}</li>)}
+                    </ul>
+                  </div>
+                )
+              )}
+            </div>
+          </div>
+        )
+      })}
     </section>
   )
 }
